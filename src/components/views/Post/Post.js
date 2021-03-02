@@ -56,7 +56,8 @@ const Component = ({className, children, user}) => {
   const history = useHistory()
   const post = [history.location.state]
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);  
+  const [expanded, setExpanded] = React.useState(false); 
+  console.log(user) 
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -93,7 +94,7 @@ const Component = ({className, children, user}) => {
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          {((user && user[0] && user[0].emails == post.email) || []) && <IconButton aria-label="add to favorites">
+          {(user && user[0] && user[0].emails == post.email) && <IconButton aria-label="add to favorites">
            <Link to={{pathname:`${process.env.PUBLIC_URL}/post/${post._id}/edit`, state: post}}> <EditIcon /> </Link>
           </IconButton>}
           <IconButton

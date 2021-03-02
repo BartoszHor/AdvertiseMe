@@ -8,7 +8,7 @@ export const getLoggedUser = ({users}) => users.user && users.user.filter((curre
     const cookies = new Cookies();
     let codedToken = cookies.get('userName');
     let token = codedToken ? jwt_decode(codedToken) : ''
-    return currentUser.emails === token
+    return currentUser.emails === token.user
 })
 
 

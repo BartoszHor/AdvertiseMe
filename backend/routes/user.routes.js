@@ -53,7 +53,6 @@ router.get('/logout', async (req, res) =>{
             } else {
                 appUser.isLogged = false
                 await appUser.save()
-                req.logout()
                 res.clearCookie('userName')
                 return res.redirect('http://localhost:3000');
             }
